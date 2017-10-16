@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,89 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3o-tR-2Pu">
+                                <rect key="frame" x="153.5" y="617" width="68" height="30"/>
+                                <state key="normal" title="Очистить"/>
+                                <connections>
+                                    <action selector="pressOnButtonClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hM7-HJ-kIz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gu6-jD-wDg">
+                                <rect key="frame" x="16" y="580.5" width="64" height="28.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="VMZ-iK-LhW"/>
+                                </constraints>
+                                <state key="normal" title="Красный"/>
+                                <connections>
+                                    <action selector="pressOnButtonWithColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tNI-UC-RSq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jI-E4-GVy">
+                                <rect key="frame" x="112" y="579" width="63" height="30"/>
+                                <state key="normal" title="Зеленый"/>
+                                <connections>
+                                    <action selector="pressOnButtonWithColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kzI-Gn-4Ed"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otl-vu-zep">
+                                <rect key="frame" x="274" y="579" width="85" height="30"/>
+                                <state key="normal" title="Оранжевый"/>
+                                <connections>
+                                    <action selector="pressOnButtonWithColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0RM-1X-ccu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5N-VK-m3j">
+                                <rect key="frame" x="202" y="579" width="46" height="30"/>
+                                <state key="normal" title="Синий"/>
+                                <connections>
+                                    <action selector="pressOnButtonWithColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMn-Bu-2Jb"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-7p-sZG">
+                                <rect key="frame" x="16" y="57" width="343" height="475"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Чтобы не возиться с примусами - их мало, разбредаемся кто куда в поисках топлива. Точно так же несметные полчища альпинистов искали здесь дрова до нас. Ломаем чахлые карликовые прутики рододендронов. К сожалению, их тоже основательно повыдергали. Все устали, и варить обед никому не хочется. Есть предложение жрать томат просто так. А крупу экономить, - говорит Ухо, горло, нос. Тутошкин, растянувшись на камне и выставив пузо для солнечного обогрева, лениво советует ему: кончай дурью маяться. Он староста: ему нужно только скомандовать... Приценивающе смотрит на Самедову. Но Катя отказывается. Я не умею варить. - стеснительно говорит она. Как это не умеешь? грозно вопрошает Тутошкин. Учись, если не умеешь! Но Катя только пожимает плечами, явно игнорируя слова старосты. И впрямь видно, что в деле варки обеда ни таланта, ни энтузиазма она не проявит. Какая-то она вся самоуглубленная. Мало смеется. Мало разговаривает. Не принимает участия в шумных забавах. Будто готовит себя к чему-то необычайному, что без остатка потребует всей ее энергии, даже той, какую она может нечаянно израсходовать, болтая, хохоча и дурачась с подружками. Янина, говорит почему-то уже не Тутошкин, а Ким, кладя к стопам девушки плотный пучок рододендронов, возьмите, пожалуйста, дело приготовления еды в свои руки, а то я вижу, что кое-кто начинает самостийно пожирать продукты в сыром виде. Она охотно соглашается, будто только и ждала, чтобы ей предложили заняться варевом.
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1Lr-8f-bwF"/>
+                            <constraint firstItem="m5N-VK-m3j" firstAttribute="centerY" secondItem="Otl-vu-zep" secondAttribute="centerY" id="45H-eJ-fF7"/>
+                            <constraint firstItem="3jI-E4-GVy" firstAttribute="baseline" secondItem="m5N-VK-m3j" secondAttribute="baseline" id="89l-lX-v34"/>
+                            <constraint firstItem="Otl-vu-zep" firstAttribute="leading" secondItem="m5N-VK-m3j" secondAttribute="trailing" constant="26" id="BIs-Qx-Vuf"/>
+                            <constraint firstItem="m5N-VK-m3j" firstAttribute="top" secondItem="Otl-vu-zep" secondAttribute="top" id="DF9-pk-Hxl"/>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="OgQ-Io-Trh"/>
+                            <constraint firstItem="m5N-VK-m3j" firstAttribute="leading" secondItem="3jI-E4-GVy" secondAttribute="trailing" constant="27" id="Phl-v1-HFO"/>
+                            <constraint firstItem="3jI-E4-GVy" firstAttribute="top" secondItem="pCr-7p-sZG" secondAttribute="bottom" constant="47" id="aKb-Fp-xry"/>
+                            <constraint firstItem="Gu6-jD-wDg" firstAttribute="bottom" secondItem="Otl-vu-zep" secondAttribute="bottom" id="eHh-lc-2jr"/>
+                            <constraint firstItem="s3o-tR-2Pu" firstAttribute="top" secondItem="3jI-E4-GVy" secondAttribute="bottom" constant="8" symbolic="YES" id="m9b-ya-IpW"/>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="leading" secondItem="Gu6-jD-wDg" secondAttribute="leading" id="oVQ-Hq-sYj"/>
+                            <constraint firstAttribute="bottom" secondItem="s3o-tR-2Pu" secondAttribute="bottom" constant="20" symbolic="YES" id="p1H-tH-XLq"/>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="sV4-dB-3V4"/>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="centerX" secondItem="s3o-tR-2Pu" secondAttribute="centerX" id="ujY-KD-vX6"/>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="trailing" secondItem="Otl-vu-zep" secondAttribute="trailing" id="xPU-oA-r5S"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="blueButton" destination="m5N-VK-m3j" id="byd-S4-UIH"/>
+                        <outlet property="greenButton" destination="3jI-E4-GVy" id="IEB-0P-6F0"/>
+                        <outlet property="orangeButton" destination="Otl-vu-zep" id="KVn-m8-YxZ"/>
+                        <outlet property="redButton" destination="Gu6-jD-wDg" id="xPY-A5-cEo"/>
+                        <outlet property="textView" destination="pCr-7p-sZG" id="Vl1-gi-lSt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
