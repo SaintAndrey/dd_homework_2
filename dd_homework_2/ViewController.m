@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TwoViewController.h"
 
 @interface ViewController ()
 
@@ -36,26 +37,39 @@
 }
 
 - (IBAction)pressOnButtonWithColor:(UIButton *)sender {
-    NSRange selectedText = [self.textView selectedRange];
-
-    UIColor *attributedColor = [sender.titleLabel textColor];
-
-    NSMutableAttributedString *resultAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
-    [resultAttributedString addAttribute:NSForegroundColorAttributeName
-                                   value:attributedColor
-                                   range:selectedText];
-
-    self.textView.attributedText = resultAttributedString;
     
+    [self.textView.textStorage setAttributes:@{ NSForegroundColorAttributeName: [sender.titleLabel textColor]} range:self.textView.selectedRange];
 }
+
 - (IBAction)pressOnButtonClear:(UIButton *)sender {
-    NSMutableAttributedString *resultAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
-    [resultAttributedString addAttribute:NSForegroundColorAttributeName
-                                   value:[UIColor blackColor]
-                                   range:NSMakeRange(0, self.textView.text.length)];
-    
-    self.textView.attributedText = resultAttributedString;
+    [self.textView.textStorage setAttributes:@{ NSForegroundColorAttributeName: [UIColor blackColor]} range:self.textView.selectedRange];
+ 
 }
 
+- (IBAction)goNotes:(id)sender {
+    [self performSegueWithIdentifier:@"Notes" sender:sender];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([[segue identifier] isEqualToString:@"Notes"]) {
+        NSMutableArray *arrayNotes = [[NSMutableArray alloc] init];
+        
+        NSAttributedString *string = [[NSAttributedString alloc] initWithAttributedString:self.textView.attributedText];
+        
+        [string enumerateAttributesInRange:NSMakeRange(0, self.textView.text.length) options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(id attrs, NSRange range, BOOL *stop){
+            if ([attrs objectForKey:@"NSColor"] == [UIColor redColor] ||
+                [attrs objectForKey:@"NSColor"] == [UIColor blueColor] ||
+                [attrs objectForKey:@"NSColor"] == [UIColor greenColor] ||
+                [attrs objectForKey:@"NSColor"] == [UIColor orangeColor]) {
+                [arrayNotes addObject:[self.textView.attributedText attributedSubstringFromRange:range]];
+            }
+        }];
+        
+        TwoViewController *nextView = [segue destinationViewController];
+        nextView.notes = arrayNotes;
+    }
+}
 
 @end
