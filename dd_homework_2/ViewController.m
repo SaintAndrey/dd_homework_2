@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TwoViewController.h"
+#import "Note.h"
 
 @interface ViewController ()
 
@@ -37,12 +37,13 @@
 }
 
 - (IBAction)pressOnButtonWithColor:(UIButton *)sender {
-    
-    [self.textView.textStorage setAttributes:@{ NSForegroundColorAttributeName: [sender.titleLabel textColor]} range:self.textView.selectedRange];
+    [self.textView.textStorage addAttribute:NSForegroundColorAttributeName
+                                      value:sender.currentTitleColor
+                                      range:self.textView.selectedRange];
 }
 
 - (IBAction)pressOnButtonClear:(UIButton *)sender {
-    [self.textView.textStorage setAttributes:@{ NSForegroundColorAttributeName: [UIColor blackColor]} range:self.textView.selectedRange];
+    [self.textView.textStorage removeAttribute:NSForegroundColorAttributeName range:self.textView.selectedRange];
  
 }
 
@@ -63,13 +64,31 @@
                 [attrs objectForKey:@"NSColor"] == [UIColor blueColor] ||
                 [attrs objectForKey:@"NSColor"] == [UIColor greenColor] ||
                 [attrs objectForKey:@"NSColor"] == [UIColor orangeColor]) {
-                [arrayNotes addObject:[self.textView.attributedText attributedSubstringFromRange:range]];
+                Note *note = [[Note alloc] init];
+                note.attString = [self.textView.textStorage attributedSubstringFromRange:range];
+                note.range = range;
+                [arrayNotes addObject:note];
+//                [arrayNotes addObject:@{
+//                                        @"AttributeString" : [self.textView.attributedText attributedSubstringFromRange:range],
+//                                        @"Range" : NSMakeRange(range.location, range.length)
+//                                        }];
             }
         }];
         
-        TwoViewController *nextView = [segue destinationViewController];
+        SecondViewTableController *nextView = [segue destinationViewController];
+        nextView.delegate = self;
         nextView.notes = arrayNotes;
     }
+}
+
+#pragma mark - DeletedNotesDelegate
+
+-(void)removeNotesWhichWasDelete:(SecondViewTableController *)secondView {
+    for (Note *note in secondView.willDeleteNotes) {
+            [self.textView.textStorage removeAttribute:NSForegroundColorAttributeName
+                                                 range:note.range];
+    }
+    NSLog(@"Hi");
 }
 
 @end

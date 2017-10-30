@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VSs-To-qeP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="msK-i7-ysT">
+            <objects>
+                <navigationController id="VSs-To-qeP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tVo-SX-aWh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JeT-nn-a7f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVT-U4-9m8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-777" y="134"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -57,7 +73,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-7p-sZG">
-                                <rect key="frame" x="16" y="57" width="343" height="475"/>
+                                <rect key="frame" x="16" y="76" width="343" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Чтобы не возиться с примусами - их мало, разбредаемся кто куда в поисках топлива. Точно так же несметные полчища альпинистов искали здесь дрова до нас. Ломаем чахлые карликовые прутики рододендронов. К сожалению, их тоже основательно повыдергали. Все устали, и варить обед никому не хочется. Есть предложение жрать томат просто так. А крупу экономить, - говорит Ухо, горло, нос. Тутошкин, растянувшись на камне и выставив пузо для солнечного обогрева, лениво советует ему: кончай дурью маяться. Он староста: ему нужно только скомандовать... Приценивающе смотрит на Самедову. Но Катя отказывается. Я не умею варить. - стеснительно говорит она. Как это не умеешь? грозно вопрошает Тутошкин. Учись, если не умеешь! Но Катя только пожимает плечами, явно игнорируя слова старосты. И впрямь видно, что в деле варки обеда ни таланта, ни энтузиазма она не проявит. Какая-то она вся самоуглубленная. Мало смеется. Мало разговаривает. Не принимает участия в шумных забавах. Будто готовит себя к чему-то необычайному, что без остатка потребует всей ее энергии, даже той, какую она может нечаянно израсходовать, болтая, хохоча и дурачась с подружками. Янина, говорит почему-то уже не Тутошкин, а Ким, кладя к стопам девушки плотный пучок рододендронов, возьмите, пожалуйста, дело приготовления еды в свои руки, а то я вижу, что кое-кто начинает самостийно пожирать продукты в сыром виде. Она охотно соглашается, будто только и ждала, чтобы ей предложили заняться варевом.
 </string>
@@ -80,7 +96,7 @@
                             <constraint firstAttribute="bottom" secondItem="s3o-tR-2Pu" secondAttribute="bottom" constant="20" symbolic="YES" id="9xx-Ff-aes"/>
                             <constraint firstItem="3jI-E4-GVy" firstAttribute="baseline" secondItem="m5N-VK-m3j" secondAttribute="baseline" id="Cdq-ls-pq1"/>
                             <constraint firstItem="Otl-vu-zep" firstAttribute="trailing" secondItem="4Vx-z9-IPL" secondAttribute="trailing" id="LeU-aO-HCl"/>
-                            <constraint firstItem="pCr-7p-sZG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="MWX-ZF-Fpu"/>
+                            <constraint firstItem="pCr-7p-sZG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="MWX-ZF-Fpu"/>
                             <constraint firstItem="m5N-VK-m3j" firstAttribute="baseline" secondItem="Otl-vu-zep" secondAttribute="baseline" id="PyT-DY-5KU"/>
                             <constraint firstItem="s3o-tR-2Pu" firstAttribute="top" secondItem="Gu6-jD-wDg" secondAttribute="bottom" constant="7" id="QtB-Pq-NLa"/>
                             <constraint firstItem="pCr-7p-sZG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SdG-wm-eRW"/>
@@ -94,6 +110,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ev3-Eq-dkR"/>
                     <connections>
                         <outlet property="blueButton" destination="m5N-VK-m3j" id="byd-S4-UIH"/>
                         <outlet property="greenButton" destination="3jI-E4-GVy" id="IEB-0P-6F0"/>
@@ -107,34 +124,13 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Two View Controller-->
+        <!--Second View Table Controller-->
         <scene sceneID="hdS-cC-Has">
             <objects>
-                <viewController id="8yn-r1-Zbb" customClass="TwoViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VWA-XA-qod">
+                <viewController id="8yn-r1-Zbb" customClass="SecondViewTableController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VWA-XA-qod" customClass="UITableView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pDm-sV-nNG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="kY3-9v-kzN">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kY3-9v-kzN" id="yag-uL-2XE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8yn-r1-Zbb" id="lbV-Nd-Y7v"/>
-                                    <outlet property="delegate" destination="8yn-r1-Zbb" id="ARe-Dq-Uzb"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="JC5-Sn-6WS"/>
                     </view>
