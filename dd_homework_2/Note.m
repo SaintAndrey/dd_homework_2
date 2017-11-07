@@ -10,4 +10,9 @@
 
 @implementation Note
 
+- (void)dealloc {
+    [_attString release];
+    [super dealloc];
+}
+
 @end

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dd_homework_2/ViewController.m"
-            timestampString = "531056631.334723"
+            timestampString = "531763620.153433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "-removeNotesWhichWasDelete:"
             landmarkType = "7">
             <Locations>
@@ -49,20 +49,6 @@
                   offsetFromSymbolStart = "94">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "dd_homework_2/SecondViewTableController.m"
-            timestampString = "531056631.336028"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

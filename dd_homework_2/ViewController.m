@@ -11,11 +11,11 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet UIButton *redButton;
-@property (strong, nonatomic) IBOutlet UIButton *greenButton;
-@property (strong, nonatomic) IBOutlet UIButton *blueButton;
-@property (strong, nonatomic) IBOutlet UIButton *orangeButton;
-@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (retain) IBOutlet UIButton *redButton;
+@property (retain) IBOutlet UIButton *greenButton;
+@property (retain) IBOutlet UIButton *blueButton;
+@property (retain) IBOutlet UIButton *orangeButton;
+@property (retain) IBOutlet UITextView *textView;
 
 @end
 
@@ -52,7 +52,7 @@
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([[segue identifier] isEqualToString:@"Notes"]) {
         NSMutableArray *arrayNotes = [[NSMutableArray alloc] init];
@@ -68,10 +68,7 @@
                 note.attString = [self.textView.textStorage attributedSubstringFromRange:range];
                 note.range = range;
                 [arrayNotes addObject:note];
-//                [arrayNotes addObject:@{
-//                                        @"AttributeString" : [self.textView.attributedText attributedSubstringFromRange:range],
-//                                        @"Range" : NSMakeRange(range.location, range.length)
-//                                        }];
+                [note release];
             }
         }];
         
@@ -83,12 +80,22 @@
 
 #pragma mark - DeletedNotesDelegate
 
--(void)removeNotesWhichWasDelete:(SecondViewTableController *)secondView {
+- (void)removeNotesWhichWasDelete:(SecondViewTableController *)secondView {
     for (Note *note in secondView.willDeleteNotes) {
             [self.textView.textStorage removeAttribute:NSForegroundColorAttributeName
                                                  range:note.range];
     }
-    NSLog(@"Hi");
+}
+
+#pragma mark - dealloc
+
+- (void)dealloc {
+    [_redButton release];
+    [_greenButton release];
+    [_blueButton release];
+    [_orangeButton release];
+    [_textView release];
+    [super dealloc];
 }
 
 @end

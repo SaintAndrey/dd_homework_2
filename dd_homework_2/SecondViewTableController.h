@@ -13,9 +13,9 @@
 
 @interface SecondViewTableController : UITableViewController
 
-@property (nonatomic, weak) id <DeletedNotesDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray *notes;
-@property (strong, nonatomic) NSMutableArray *willDeleteNotes;
+@property (assign) id <DeletedNotesDelegate> delegate;
+@property (retain) NSMutableArray *notes;
+@property (retain) NSMutableArray *willDeleteNotes;
 
 @end
 
