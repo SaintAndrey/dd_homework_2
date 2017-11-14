@@ -11,16 +11,16 @@
 
 @protocol DeletedNotesDelegate;
 
-@interface SecondViewTableController : UITableViewController
+@interface NotesViewTableContorller : UITableViewController
 
 @property (assign) id <DeletedNotesDelegate> delegate;
-@property (retain) NSMutableArray *notes;
-@property (retain) NSMutableArray *willDeleteNotes;
+@property (retain, nonatomic) NSMutableArray *notes;
+@property (retain, nonatomic) NSMutableArray *willDeleteNotes;
 
 @end
 
 @protocol DeletedNotesDelegate
 
--(void)removeNotesWhichWasDelete:(SecondViewTableController *)secondView;
+-(void)removeNotesWhichWasDelete:(NotesViewTableContorller *)secondView;
 
 @end

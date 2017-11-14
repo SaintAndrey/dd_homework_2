@@ -6,30 +6,21 @@
 //  Copyright © 2017 Andrey. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "Note.h"
+#import "EditorViewContoller.h"
 
-@interface ViewController ()
+@class Note;
 
-@property (retain) IBOutlet UIButton *redButton;
-@property (retain) IBOutlet UIButton *greenButton;
-@property (retain) IBOutlet UIButton *blueButton;
-@property (retain) IBOutlet UIButton *orangeButton;
+@interface EditorViewContoller ()
+
 @property (retain) IBOutlet UITextView *textView;
 
 @end
 
-@implementation ViewController
+@implementation EditorViewContoller
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.redButton setTintColor:[UIColor redColor]];
-    [self.greenButton setTintColor:[UIColor greenColor]];
-    [self.blueButton setTintColor:[UIColor blueColor]];
-    [self.orangeButton setTintColor:[UIColor orangeColor]];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,11 +50,8 @@
         
         NSAttributedString *string = [[NSAttributedString alloc] initWithAttributedString:self.textView.attributedText];
         
-        [string enumerateAttributesInRange:NSMakeRange(0, self.textView.text.length) options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(id attrs, NSRange range, BOOL *stop){
-            if ([attrs objectForKey:@"NSColor"] == [UIColor redColor] ||
-                [attrs objectForKey:@"NSColor"] == [UIColor blueColor] ||
-                [attrs objectForKey:@"NSColor"] == [UIColor greenColor] ||
-                [attrs objectForKey:@"NSColor"] == [UIColor orangeColor]) {
+        [string enumerateAttributesInRange:NSMakeRange(0, self.textView.text.length) options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(id attrs, NSRange range, BOOL *stop) {
+            if ([attrs objectForKey:@"NSColor"] != nil) {
                 Note *note = [[Note alloc] init];
                 note.attString = [self.textView.textStorage attributedSubstringFromRange:range];
                 note.range = range;
@@ -72,7 +60,7 @@
             }
         }];
         
-        SecondViewTableController *nextView = [segue destinationViewController];
+        NotesViewTableContorller *nextView = [segue destinationViewController];
         nextView.delegate = self;
         nextView.notes = arrayNotes;
     }
@@ -80,7 +68,7 @@
 
 #pragma mark - DeletedNotesDelegate
 
-- (void)removeNotesWhichWasDelete:(SecondViewTableController *)secondView {
+- (void)removeNotesWhichWasDelete:(NotesViewTableContorller *)secondView {
     for (Note *note in secondView.willDeleteNotes) {
             [self.textView.textStorage removeAttribute:NSForegroundColorAttributeName
                                                  range:note.range];
@@ -90,10 +78,6 @@
 #pragma mark - dealloc
 
 - (void)dealloc {
-    [_redButton release];
-    [_greenButton release];
-    [_blueButton release];
-    [_orangeButton release];
     [_textView release];
     [super dealloc];
 }

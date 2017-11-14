@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SecondViewTableController.h"
+#import "NotesViewTableContorller.h"
 
-@interface ViewController : UIViewController <DeletedNotesDelegate>
+@interface EditorViewContoller : UIViewController <DeletedNotesDelegate>
 
 @end
 

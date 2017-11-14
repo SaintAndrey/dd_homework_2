@@ -10,7 +10,7 @@
 
 @interface Note : NSObject
 
-@property (retain) NSAttributedString *attString;
+@property (retain, nonatomic) NSAttributedString *attString;
 @property NSRange range;
 
 @end

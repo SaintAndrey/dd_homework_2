@@ -6,9 +6,9 @@
 //  Copyright © 2017 Andrey. All rights reserved.
 //
 
-#import "SecondViewTableController.h"
+#import "NotesViewTableContorller.h"
 
-@implementation SecondViewTableController
+@implementation NotesViewTableContorller
 
 - (void)viewDidLoad {
     [super viewDidLoad];
